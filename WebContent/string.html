@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+	var s = "This is a String";
+	var length = s.length;
+	for( var i = 0; i < length; i++ ) {
+		console.log( s[ i ] );
+	}
+	
+	var s1 = "number" + 5;
+	console.log( s1 );
+	
+	var n = 5 + "5";
+	console.log( n );
+	
+	var n2 = "5" + 5;
+	console.log( n2 );
+	
+	var n3 = parseInt( "5", 10 ) + 5;
+	console.log( n3 );
+	
+	var str = "String1 String2 String3";
+	console.log( str.indexOf( "String2" ) );
+	
+	var str2 = str.substr( 8 );
+	console.log( str2 );
+	
+	var str3 = str.substr( 8, 14 ); // startIndex, count
+	console.log( str3 );
+
+	var str4 = str.substring( 8, 14 ); // startIndex, lastIndex-1
+	console.log( str4 );
+
+	var tokens = str.split( " " );
+	console.log( tokens );
+	
+	// 전역 함수 
+	var escapeHTML = function( str ) {
+		return str.replace( />/g, "&gt;" ).replace( /</g, "&lt;");
+	} 
+
+	// string 객체의 Prototype 확장
+	String.prototype.escapeHTML = function() {
+		return this.replace( />/g, "&gt;" ).replace( /</g, "&lt;" );
+	}
+	
+	var onLoaded = function() {
+		var html = "<h3>Here's a headline!</h3>";   // > -> &gt;   < -> &lth & -> &amp;
+		//document.getElementById( "myDiv" ).innerHTML = html;
+		//document.getElementById( "myDiv" ).innerHTML = escapeHTML( html );
+		document.getElementById( "myDiv" ).innerHTML = html.escapeHTML();
+	}
+	
+	
+</script>
+</head>
+<body onload="onLoaded();">
+	<div id="myDiv">
+	</div>
+	<div>
+		a &lt; 100 = true	
+	</div>
+		
+</body>
+</html>

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<script>
+var employee = new Object();
+employee.name = "안대혁";
+employee.age = 43;
+employee.showInfo = function() {
+	console.log( this.name + ":" + this.age );
+}
+
+window.employee.showInfo();
+console.log( employee.age );
+
+</script>
+</head>
+<body>
+</body>
+</html>
